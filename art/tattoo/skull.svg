@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="900" viewBox="0 0 700 900">
+  <rect width="700" height="900" fill="#f0e6d0"/>
+  <g fill="#0a0808" stroke="#0a0808" stroke-linejoin="round">
+    <path d="M350 180 C 200 180, 140 320, 160 460 C 170 540, 220 580, 240 620 L 240 690 L 320 690 L 320 640 L 380 640 L 380 690 L 460 690 L 460 620 C 480 580, 530 540, 540 460 C 560 320, 500 180, 350 180 Z" fill="#f5ecd6" stroke-width="6"/>
+    <ellipse cx="280" cy="430" rx="55" ry="65" fill="#0a0808"/>
+    <ellipse cx="420" cy="430" rx="55" ry="65" fill="#0a0808"/>
+    <path d="M340 530 L 360 530 L 350 580 Z" fill="#0a0808"/>
+    <path d="M280 660 L 280 680 M310 660 L 310 680 M340 660 L 340 680 M360 660 L 360 680 M390 660 L 390 680 M420 660 L 420 680" stroke="#0a0808" stroke-width="4"/>
+  </g>
+  <text x="50%" y="800" text-anchor="middle" fill="#0a0808" font-family="serif" font-size="34" letter-spacing="8" font-weight="700">MEMENTO MORI</text>
+</svg>

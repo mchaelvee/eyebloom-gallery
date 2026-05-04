@@ -1,0 +1,300 @@
+{
+  "pieces": [
+    {
+      "id": "eye-bloom",
+      "section": "paintings",
+      "src": "./art/paintings/eye-bloom.jpg",
+      "title": "Eye Bloom",
+      "year": "2023",
+      "medium": "Original painting",
+      "description": "Original painting from Eyebloom Art.",
+      "sourceUrl": "https://www.kirstenkamstra.com/product-page/eye-bloom"
+    },
+    {
+      "id": "eye-see-you",
+      "section": "paintings",
+      "src": "./art/paintings/eye-see-you.jpg",
+      "title": "Eye See You",
+      "year": "2024",
+      "medium": "Original painting",
+      "description": "Original painting from Eyebloom Art.",
+      "sourceUrl": "https://www.kirstenkamstra.com/product-page/eye-see-you-original-painting"
+    },
+    {
+      "id": "mezmereyez",
+      "section": "paintings",
+      "src": "./art/paintings/mezmereyez.jpg",
+      "title": "Mezmereyez",
+      "year": "2024",
+      "medium": "Original painting",
+      "description": "Original painting from Eyebloom Art.",
+      "sourceUrl": "https://www.kirstenkamstra.com/product-page/mezmereyez-original-painting"
+    },
+    {
+      "id": "the-past-peeks-through",
+      "section": "paintings",
+      "src": "./art/paintings/the-past-peeks-through.jpg",
+      "title": "The Past Peeks Through",
+      "year": "2024",
+      "medium": "Original painting",
+      "description": "Original painting from Eyebloom Art."
+    },
+    {
+      "id": "the-burn",
+      "section": "paintings",
+      "src": "./art/paintings/the-burn.jpg",
+      "title": "The Burn",
+      "year": "2023",
+      "medium": "Original painting",
+      "description": "Original painting from Eyebloom Art."
+    },
+    {
+      "id": "sunfire",
+      "section": "paintings",
+      "src": "./art/paintings/sunfire.jpg",
+      "title": "Sunfire",
+      "year": "2023",
+      "medium": "Original painting",
+      "description": "Original painting from Eyebloom Art.",
+      "sourceUrl": "https://www.kirstenkamstra.com/product-page/sunfire"
+    },
+    {
+      "id": "the-wizard",
+      "section": "paintings",
+      "src": "./art/paintings/the-wizard.jpg",
+      "title": "The Wizard",
+      "year": "2022",
+      "medium": "Original painting",
+      "description": "Original painting from Eyebloom Art."
+    },
+    {
+      "id": "svadhisthana",
+      "section": "paintings",
+      "src": "./art/paintings/svadhisthana.jpg",
+      "title": "Svadhisthana",
+      "year": "2020",
+      "medium": "Original painting",
+      "description": "Original painting from Eyebloom Art."
+    },
+    {
+      "id": "the-heart-knows",
+      "section": "paintings",
+      "src": "./art/paintings/the-heart-knows.jpg",
+      "title": "The Heart Knows",
+      "year": "2019",
+      "medium": "Original painting",
+      "description": "Original painting from Eyebloom Art.",
+      "sourceUrl": "https://www.kirstenkamstra.com/product-page/the-heart-knows-original-painting"
+    },
+
+    {
+      "id": "mural-om",
+      "section": "paintings",
+      "src": "./art/murals/om.jpg",
+      "title": "Om",
+      "year": "Mural",
+      "medium": "Wall mural",
+      "description": "Hand-painted wall mural."
+    },
+    {
+      "id": "mural-2",
+      "section": "paintings",
+      "src": "./art/murals/mural-2.jpg",
+      "title": "Mural Study II",
+      "year": "Mural",
+      "medium": "Wall mural",
+      "description": "Hand-painted wall mural."
+    },
+    {
+      "id": "mural-3",
+      "section": "paintings",
+      "src": "./art/murals/mural-3.jpg",
+      "title": "Mural Study III",
+      "year": "Mural",
+      "medium": "Wall mural",
+      "description": "Hand-painted wall mural."
+    },
+    {
+      "id": "mural-4",
+      "section": "paintings",
+      "src": "./art/murals/mural-4.jpg",
+      "title": "Mural Study IV",
+      "year": "Mural",
+      "medium": "Wall mural",
+      "description": "Hand-painted wall mural."
+    },
+    {
+      "id": "mural-5",
+      "section": "paintings",
+      "src": "./art/murals/mural-5.jpg",
+      "title": "Mural Study V",
+      "year": "Mural",
+      "medium": "Wall mural",
+      "description": "Hand-painted wall mural."
+    },
+    {
+      "id": "mural-6",
+      "section": "paintings",
+      "src": "./art/murals/mural-6.jpg",
+      "title": "Mural Study VI",
+      "year": "Mural",
+      "medium": "Wall mural",
+      "description": "Hand-painted wall mural."
+    },
+
+    {
+      "id": "ouroboros",
+      "section": "drawings",
+      "src": "./art/drawings/ouroboros.jpg",
+      "title": "Ouroboros",
+      "year": "2021",
+      "medium": "Drawing",
+      "description": "Drawing from Eyebloom Art."
+    },
+    {
+      "id": "emerging-from-murky-waters",
+      "section": "drawings",
+      "src": "./art/drawings/emerging-from-murky-waters.jpg",
+      "title": "Emerging From Murky Waters",
+      "year": "2020",
+      "medium": "Drawing",
+      "description": "Drawing from Eyebloom Art."
+    },
+    {
+      "id": "stag",
+      "section": "drawings",
+      "src": "./art/drawings/stag.jpg",
+      "title": "Stag",
+      "year": "2018",
+      "medium": "Drawing",
+      "description": "Drawing from Eyebloom Art."
+    },
+    {
+      "id": "guide-thyself",
+      "section": "drawings",
+      "src": "./art/drawings/guide-thyself.jpg",
+      "title": "Guide Thyself",
+      "year": "2018",
+      "medium": "Drawing",
+      "description": "Drawing from Eyebloom Art."
+    },
+    {
+      "id": "a-field-of-flowers",
+      "section": "drawings",
+      "src": "./art/drawings/a-field-of-flowers.jpg",
+      "title": "A Field of Flowers",
+      "year": "2018",
+      "medium": "Drawing",
+      "description": "Drawing from Eyebloom Art."
+    },
+    {
+      "id": "zen",
+      "section": "drawings",
+      "src": "./art/drawings/zen.jpg",
+      "title": "Zen",
+      "year": "2017",
+      "medium": "Drawing",
+      "description": "Drawing from Eyebloom Art."
+    },
+    {
+      "id": "spiral-out",
+      "section": "drawings",
+      "src": "./art/drawings/spiral-out.jpg",
+      "title": "Spiral Out",
+      "year": "2017",
+      "medium": "Drawing",
+      "description": "Drawing from Eyebloom Art."
+    },
+    {
+      "id": "regeneration",
+      "section": "drawings",
+      "src": "./art/drawings/regeneration.jpg",
+      "title": "Regeneration",
+      "year": "2016",
+      "medium": "Drawing",
+      "description": "Drawing from Eyebloom Art."
+    },
+    {
+      "id": "cosmic-creation",
+      "section": "drawings",
+      "src": "./art/drawings/cosmic-creation.jpg",
+      "title": "Cosmic Creation",
+      "year": "2014",
+      "medium": "Drawing",
+      "description": "Drawing from Eyebloom Art."
+    },
+
+    {
+      "id": "t-skull",
+      "room": "tattoo",
+      "src": "./art/tattoo/skull.svg",
+      "title": "Memento Mori",
+      "year": "Flash",
+      "medium": "American traditional",
+      "description": "A reminder, in ink.",
+      "frameColor": 1118482,
+      "matColor": 1973790,
+      "scale": 0.75
+    },
+    {
+      "id": "t-rose",
+      "room": "tattoo",
+      "src": "./art/tattoo/rose.svg",
+      "title": "Rose",
+      "year": "Flash",
+      "medium": "Bold line",
+      "description": "Classic single-needle rose with leaves.",
+      "frameColor": 1118482,
+      "matColor": 1973790,
+      "scale": 0.75
+    },
+    {
+      "id": "t-anchor",
+      "room": "tattoo",
+      "src": "./art/tattoo/anchor.svg",
+      "title": "Hold Fast",
+      "year": "Flash",
+      "medium": "Old school",
+      "description": "Anchor and rope. Steady on.",
+      "frameColor": 1118482,
+      "matColor": 1973790,
+      "scale": 0.75
+    },
+    {
+      "id": "t-dagger",
+      "room": "tattoo",
+      "src": "./art/tattoo/dagger.svg",
+      "title": "Dagger",
+      "year": "Flash",
+      "medium": "Old school",
+      "description": "Through and through.",
+      "frameColor": 1118482,
+      "matColor": 1973790,
+      "scale": 0.75
+    },
+    {
+      "id": "t-snake",
+      "room": "tattoo",
+      "src": "./art/tattoo/snake.svg",
+      "title": "Serpent",
+      "year": "Flash",
+      "medium": "Bold line",
+      "description": "Coiling — patience before strike.",
+      "frameColor": 1118482,
+      "matColor": 1973790,
+      "scale": 0.75
+    },
+    {
+      "id": "t-eye",
+      "room": "tattoo",
+      "src": "./art/tattoo/eye.svg",
+      "title": "All-Seeing",
+      "year": "Flash",
+      "medium": "Color",
+      "description": "Sight beyond sight.",
+      "frameColor": 1118482,
+      "matColor": 1973790,
+      "scale": 0.75
+    }
+  ]
+}

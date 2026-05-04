@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="900" viewBox="0 0 700 900">
+  <rect width="700" height="900" fill="#f0e6d0"/>
+  <g stroke="#0a0808" stroke-width="6" fill="none" stroke-linejoin="round" stroke-linecap="round">
+    <circle cx="350" cy="220" r="50" fill="#0a0808"/>
+    <circle cx="350" cy="220" r="22" fill="#f0e6d0"/>
+    <line x1="350" y1="270" x2="350" y2="640"/>
+    <line x1="270" y1="320" x2="430" y2="320" stroke-width="14"/>
+    <path d="M180 540 C 180 660, 280 720, 350 720 C 420 720, 520 660, 520 540"/>
+    <path d="M180 540 L 220 530 L 200 580 Z" fill="#0a0808"/>
+    <path d="M520 540 L 480 530 L 500 580 Z" fill="#0a0808"/>
+  </g>
+  <g stroke="#0a0808" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M340 260 C 320 250, 280 250, 270 280 C 310 290, 360 290, 380 280 C 410 250, 380 250, 360 260"/>
+    <path d="M340 280 C 320 270, 290 270, 280 295 C 320 305, 360 305, 380 295 C 400 270, 380 270, 360 280"/>
+  </g>
+  <text x="50%" y="830" text-anchor="middle" fill="#0a0808" font-family="serif" font-size="30" letter-spacing="6" font-weight="700">HOLD FAST</text>
+</svg>

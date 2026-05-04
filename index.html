@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>eyebloom — gallery</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <canvas id="scene"></canvas>
+
+  <div id="intro" class="overlay">
+    <div class="intro-card">
+      <h1>eyebloom</h1>
+      <p class="subtitle">a gallery by the artist</p>
+      <div id="loader" class="loader" aria-live="polite">
+        <div class="loader-bar"><span id="loader-progress"></span></div>
+        <p id="loader-label">preparing gallery</p>
+      </div>
+      <button id="enter-btn" class="primary">enter gallery</button>
+      <p class="hint desktop-hint">click scene to capture · WASD to move · mouse to look · click art to focus</p>
+      <p class="hint mobile-hint">left stick to move · drag to look · tap art to focus</p>
+    </div>
+  </div>
+
+  <div id="hud" class="hidden">
+    <div id="crosshair"></div>
+    <div id="focus-label"></div>
+    <button id="exit-btn" aria-label="exit">×</button>
+  </div>
+
+  <div id="joystick" class="hidden">
+    <div id="joystick-base"><div id="joystick-knob"></div></div>
+  </div>
+
+  <div id="lightbox" class="hidden">
+    <button id="lightbox-close" type="button" aria-label="close">×</button>
+    <div class="lightbox-inner">
+      <img id="lightbox-img" alt="" />
+      <div class="lightbox-meta">
+        <h2 id="lightbox-title"></h2>
+        <p id="lightbox-sub"></p>
+        <p id="lightbox-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
