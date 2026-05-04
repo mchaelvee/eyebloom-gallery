@@ -122,16 +122,16 @@ export const config = {
     strength:  0.45,                 // toned down (was 0.55)
     radius:    0.40,
     threshold: 0.82,
-    skipOnTouch: true,
+    skipOnTouch: false,
   },
 
   performance: {
     dynamicResolution: true,
-    targetFps: 56,
-    desktopPixelRatio: 1.25,         // dropped (was 1.45) — biggest perf win
-    mobilePixelRatio: 0.95,
+    targetFps: 50,
+    desktopPixelRatio: 1.75,
+    mobilePixelRatio: 1.35,
     antialias: true,
-    minPixelRatio: 0.7,
+    minPixelRatio: 1.0,
     pickInterval: 0.1,
 
     // PBR / quality flags.
@@ -150,6 +150,6 @@ export const config = {
     ceilingFillSpotCount:  2,
 
     // Anisotropy cap applied to all textures.
-    anisotropy:            4,
+    anisotropy:            8,
   },
 };

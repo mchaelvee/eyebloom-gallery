@@ -55,6 +55,11 @@ function resolvePublicPath(urlPathname) {
   return insideRoot ? resolvedPath : null;
 }
 
+function cacheControlFor(ext) {
+  if ([".html", ".js", ".json", ".css"].includes(ext)) return "no-cache";
+  return "public, max-age=3600";
+}
+
 async function serveStatic(req, res, pathname) {
   const filePath = resolvePublicPath(pathname);
   if (!filePath) {
@@ -79,7 +84,7 @@ async function serveStatic(req, res, pathname) {
   const headers = {
     "content-type": mimeTypes.get(ext) || "application/octet-stream",
     "content-length": fileStat.size,
-    "cache-control": ext === ".html" ? "no-cache" : "public, max-age=3600",
+    "cache-control": cacheControlFor(ext),
   };
 
   res.writeHead(200, headers);
