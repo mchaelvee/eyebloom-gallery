@@ -20,10 +20,16 @@ const useBloom = !!(bloomConfig.enabled && !(touchDevice && bloomConfig.skipOnTo
 const maxPixelRatio = touchDevice
   ? (perfConfig.mobilePixelRatio ?? 1.15)
   : (perfConfig.desktopPixelRatio ?? 1.5);
+const initialPixelRatio = Math.max(
+  window.devicePixelRatio || 1,
+  touchDevice
+    ? (perfConfig.mobileInitialPixelRatio ?? 0)
+    : (perfConfig.desktopInitialPixelRatio ?? 0),
+);
 const minPixelRatio = perfConfig.minPixelRatio ?? 0.85;
 let currentPixelRatio = Math.max(
   minPixelRatio,
-  Math.min(window.devicePixelRatio || 1, maxPixelRatio),
+  Math.min(initialPixelRatio, maxPixelRatio),
 );
 
 const renderer = new THREE.WebGLRenderer({
@@ -52,6 +58,7 @@ const loaderLabel = document.getElementById('loader-label');
 
 let galleryReady = false;
 let loadFailed = false;
+const loadStartedAt = performance.now();
 
 function setLoadingState(progress, label) {
   if (loaderProgress) loaderProgress.style.width = `${Math.round(progress * 100)}%`;
@@ -71,10 +78,10 @@ const managerIdle = new Promise((resolve) => {
   loadingManager.onProgress = (url, loaded, total) => {
     const progress = total > 0 ? loaded / total : 0.05;
     const cleanUrl = url.split('/').pop() || 'asset';
-    setLoadingState(0.18 + Math.min(progress, 0.78), `loading ${cleanUrl}`);
+    setLoadingState(0.18 + Math.min(progress, 0.72), `loading ${cleanUrl}`);
   };
   loadingManager.onLoad = () => {
-    setLoadingState(1, 'gallery ready');
+    setLoadingState(0.92, 'assets loaded');
     resolve();
   };
   loadingManager.onError = () => {
@@ -98,9 +105,10 @@ const artPromise = manifestPromise.then((manifest) => loadArt(scene, layout, {
   manager: loadingManager,
 }));
 
-Promise.all([managerIdle, artPromise]).then(([, { interactables: list }]) => {
+Promise.all([managerIdle, artPromise]).then(async ([, { interactables: list }]) => {
   interactables = list;
   artReady = true;
+  await warmUpGallery();
   galleryReady = true;
   loader?.classList.add('ready');
   enterBtn.disabled = false;
@@ -211,6 +219,105 @@ if (useBloom) {
   composer.addPass(new OutputPass());
 }
 
+function nextFrame() {
+  return new Promise((resolve) => requestAnimationFrame(resolve));
+}
+
+function uploadSceneTextures() {
+  if (!renderer.initTexture) return;
+
+  const textures = new Set();
+  const textureKeys = [
+    'alphaMap',
+    'aoMap',
+    'bumpMap',
+    'displacementMap',
+    'emissiveMap',
+    'envMap',
+    'lightMap',
+    'map',
+    'metalnessMap',
+    'normalMap',
+    'roughnessMap',
+  ];
+
+  scene.traverse((obj) => {
+    const materials = Array.isArray(obj.material) ? obj.material : [obj.material];
+    for (const material of materials) {
+      if (!material) continue;
+      for (const key of textureKeys) {
+        const texture = material[key];
+        if (texture?.isTexture) textures.add(texture);
+      }
+    }
+  });
+
+  for (const texture of textures) {
+    if (texture.image) renderer.initTexture(texture);
+  }
+}
+
+async function renderWarmupView(position, yaw = 0, pitch = 0) {
+  const originalPosition = controls.object.position.clone();
+  const originalYaw = controls.object.rotation.y;
+  const pitchObject = camera.parent;
+  const originalPitch = pitchObject?.rotation.x ?? 0;
+
+  controls.object.position.copy(position);
+  controls.object.rotation.y = yaw;
+  if (pitchObject) pitchObject.rotation.x = pitch;
+  camera.updateMatrixWorld(true);
+
+  const frames = perfConfig.warmup?.framesPerView ?? 2;
+  for (let i = 0; i < frames; i += 1) {
+    if (composer) composer.render();
+    else renderer.render(scene, camera);
+    await nextFrame();
+  }
+
+  controls.object.position.copy(originalPosition);
+  controls.object.rotation.y = originalYaw;
+  if (pitchObject) pitchObject.rotation.x = originalPitch;
+  camera.updateMatrixWorld(true);
+}
+
+async function warmUpGallery() {
+  const warmup = perfConfig.warmup ?? {};
+  if (!warmup.enabled) return;
+
+  try {
+    setLoadingState(0.96, 'optimizing gallery');
+    onResize();
+    uploadSceneTextures();
+
+    if (renderer.compileAsync) {
+      await renderer.compileAsync(scene, camera);
+    } else {
+      renderer.compile(scene, camera);
+    }
+
+    const eyeY = config.player.eyeHeight;
+    const views = [
+      [new THREE.Vector3(0, eyeY, config.player.startZ), Math.PI],
+      [new THREE.Vector3(0, eyeY, layout.gallery.sections.paintings.centerZ), Math.PI / 2],
+      [new THREE.Vector3(0, eyeY, layout.gallery.sections.drawings.centerZ), -Math.PI / 2],
+      [new THREE.Vector3(0, eyeY, layout.tattoo.centerZ), 0],
+    ];
+
+    for (const [position, yaw] of views) {
+      await renderWarmupView(position, yaw, -0.03);
+    }
+
+    const elapsed = performance.now() - loadStartedAt;
+    const remaining = (warmup.minLoadMs ?? 0) - elapsed;
+    if (remaining > 0) {
+      await new Promise((resolve) => setTimeout(resolve, remaining));
+    }
+  } catch (err) {
+    console.warn('gallery warmup skipped', err);
+  }
+}
+
 function setRenderPixelRatio(next) {
   const clamped = Math.max(minPixelRatio, Math.min(maxPixelRatio, next));
   if (Math.abs(clamped - currentPixelRatio) < 0.03) return;
@@ -240,7 +347,13 @@ let slowWindows = 0;
 let fastWindows = 0;
 
 function updateAdaptiveQuality(dt) {
-  if (!perfConfig.dynamicResolution || document.hidden || lightbox.isOpen) return;
+  if (
+    !perfConfig.dynamicResolution ||
+    !galleryReady ||
+    !controls.active ||
+    document.hidden ||
+    lightbox.isOpen
+  ) return;
 
   fpsElapsed += dt;
   fpsFrames += 1;

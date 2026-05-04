@@ -127,12 +127,19 @@ export const config = {
 
   performance: {
     dynamicResolution: true,
-    targetFps: 50,
-    desktopPixelRatio: 1.75,
-    mobilePixelRatio: 1.35,
+    targetFps: 48,
+    desktopPixelRatio: 2.0,
+    desktopInitialPixelRatio: 1.7,
+    mobilePixelRatio: 1.55,
+    mobileInitialPixelRatio: 1.35,
     antialias: true,
     minPixelRatio: 1.0,
     pickInterval: 0.1,
+    warmup: {
+      enabled: true,
+      minLoadMs: 2400,
+      framesPerView: 2,
+    },
 
     // PBR / quality flags.
     bakedRoomMaterials:    false,
@@ -150,6 +157,6 @@ export const config = {
     ceilingFillSpotCount:  2,
 
     // Anisotropy cap applied to all textures.
-    anisotropy:            8,
+    anisotropy:            16,
   },
 };
